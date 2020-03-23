@@ -9,7 +9,7 @@ namespace CUAS\iLab;
 
 
 class SbProxy {
-	const WSDL  = 'https://dispatcher.onlinelab.space/apis/isa/soap/client';
+	const WSDL  = 'https:// <your dispatcher base url> /apis/isa/soap/client';
 	const LS_ID = '**********';
 	
 	private $client = null;
