@@ -70,8 +70,11 @@ class SbProxy {
 			case 'Cancel':
 			case 'GetExperimentStatus':
 			case 'RetrieveResult':
-				if ($parameters === null) {
-					return $this->createJsonResponse('exception', null, $operation, 'Correct parameters missing!');
+				if ( !isset($parameters['experimentID']) ) {
+					return $this->createJsonResponse('exception', null, $operation, 'experimentID not set!');
+				}
+				if ( !is_string($parameters['experimentID']) ) {
+					return $this->createJsonResponse('exception', null, $operation, 'experimentID is not a string!');
 				}
 				$params = array('experimentID' => $parameters['experimentID']);
 				break;
